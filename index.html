@@ -187,38 +187,41 @@ section{padding:80px 0;position:relative}
 .shead{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;margin-bottom:44px;align-items:end}
 .shead p{font-size:15px}
 
-/* Services - asymmetric grid */
-.svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+/* Services - photo cards */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .svc{
-  background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);padding:32px 28px;
-  display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:280px;
-  position:relative;overflow:hidden;transition:.35s var(--ease);
+  background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;
+  position:relative;transition:.35s var(--ease);
 }
-.svc:nth-child(1),.svc:nth-child(4){grid-column:span 3}
-.svc:nth-child(2),.svc:nth-child(3){grid-column:span 3}
-.svc:nth-child(5){
-  grid-column:span 2;background:var(--ink);color:#fff;
-  background-image:linear-gradient(180deg,rgba(10,31,36,.4) 0%,rgba(10,31,36,.92) 70%),url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80');
-  background-size:cover;background-position:center;
+.svc:hover{transform:translateY(-4px);box-shadow:0 30px 60px -36px rgba(10,31,36,.28);border-color:var(--line)}
+.svc-img{
+  position:relative;aspect-ratio:16/10;background:var(--bg2) center/cover no-repeat;
 }
-.svc:nth-child(5) .icon{background:rgba(255,255,255,.12);color:var(--mint);backdrop-filter:blur(4px)}
-.svc:nth-child(5) p{color:#cfe3e0}
-.svc:nth-child(5) .arr{border-color:rgba(255,255,255,.3);color:#fff;background:rgba(255,255,255,.08)}
-.svc:nth-child(6){grid-column:span 2}
-.svc:nth-child(7){grid-column:span 2;background:var(--mint-soft)}
-.svc:hover{transform:translateY(-4px);box-shadow:0 30px 60px -36px rgba(10,31,36,.25);border-color:var(--line)}
-.svc .icon{
-  width:52px;height:52px;border-radius:14px;background:var(--bg2);display:grid;place-items:center;color:var(--teal-d);
+.svc-img::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(10,31,36,.18) 100%);
+  transition:.3s;
 }
-.svc h3{margin-bottom:8px}
-.svc p{color:var(--soft);font-size:14px}
-.svc .arr{
-  width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;
-  align-self:flex-end;transition:.3s;
+.svc:hover .svc-img::after{background:linear-gradient(180deg,rgba(15,118,110,.05) 0%,rgba(10,31,36,.25) 100%)}
+.svc-img .tag{
+  position:absolute;top:14px;left:14px;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);
+  padding:5px 10px;border-radius:999px;font-size:10px;font-weight:700;color:var(--teal-d);
+  letter-spacing:.08em;text-transform:uppercase;z-index:2;
 }
-.svc:hover .arr{background:var(--teal);border-color:var(--teal);color:#fff;transform:rotate(-45deg)}
-.svc .from{font-size:13px;color:var(--soft);font-weight:500}
-.svc .from b{color:var(--ink);font-weight:700;font-size:16px;font-family:var(--sans)}
+.svc-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1;gap:10px}
+.svc h3{margin:0;font-size:18px}
+.svc p{color:var(--soft);font-size:13.5px;line-height:1.55;margin:0}
+.svc-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px;gap:10px}
+.svc-foot .from{font-size:12px;color:var(--soft);font-weight:500}
+.svc-foot .from b{color:var(--ink);font-weight:700;font-size:14px;display:block;letter-spacing:-.01em}
+.svc-foot .arr{
+  display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;
+  font-size:12px;font-weight:600;color:var(--ink);transition:.25s;
+}
+.svc:hover .svc-foot .arr{background:var(--ink);border-color:var(--ink);color:#fff}
+.svc:hover .svc-foot .arr svg{transform:translateX(2px)}
+.svc-foot .arr svg{transition:.25s}
 
 /* Process timeline */
 .process{background:var(--ink);color:#fff;position:relative;overflow:hidden}
@@ -525,78 +528,129 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
 
     <div class="svc-grid">
       <a class="svc reveal" href="#contacto">
-        <div>
-          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v10M9 13h6M7 13c0 5 2 7 5 7s5-2 5-7"/></svg></div>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=80')">
+          <span class="tag">Cirugía</span>
+        </div>
+        <div class="svc-body">
           <h3>Implantología</h3>
-          <p>Unitarios, all-on-4 y carga inmediata con planificación CBCT. Marca a elegir entre Straumann y Neodent.</p>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span class="from">Desde <b>S/ 2 800</b></span>
-          <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="svc reveal" href="#contacto">
-        <div>
-          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="6" rx="3"/><path d="M8 9V6M16 9V6"/></svg></div>
-          <h3>Ortodoncia (brackets e invisible)</h3>
-          <p>Alineadores transparentes con escaneo 3D + brackets autoligado y estético. Plan mensual con revisión clínica.</p>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span class="from">Desde <b>S/ 4 500</b></span>
-          <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <p>Unitarios, all-on-4 y carga inmediata con planificación CBCT. Implantes Straumann y Neodent a elegir.</p>
+          <div class="svc-foot">
+            <span class="from">Desde <b>S/ 2 800</b></span>
+            <span class="arr">Ver más <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
         </div>
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div>
-          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12c0-4 3-7 7-7s7 3 7 7-3 7-7 7H5z"/></svg></div>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1611690045208-bff58a4cabea?auto=format&fit=crop&w=700&q=80')">
+          <span class="tag">Ortodoncia</span>
+        </div>
+        <div class="svc-body">
+          <h3>Ortodoncia invisible & brackets</h3>
+          <p>Alineadores transparentes con escaneo 3D + brackets autoligado y estéticos. Revisión clínica mensual.</p>
+          <div class="svc-foot">
+            <span class="from">Desde <b>S/ 4 500</b></span>
+            <span class="arr">Ver más <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="svc reveal" href="#contacto">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1559131397-f94da358f7ca?auto=format&fit=crop&w=700&q=80')">
+          <span class="tag">Encías</span>
+        </div>
+        <div class="svc-body">
           <h3>Periodoncia</h3>
-          <p>Tratamiento de encías, raspado profundo, regeneración tisular e injerto gingival.</p>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span class="from">Desde <b>S/ 350</b></span>
-          <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <p>Tratamiento de encías, raspado profundo, regeneración tisular e injerto gingival con técnica mínimamente invasiva.</p>
+          <div class="svc-foot">
+            <span class="from">Desde <b>S/ 350</b></span>
+            <span class="arr">Ver más <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
         </div>
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div>
-          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=700&q=80')">
+          <span class="tag">Conductos</span>
+        </div>
+        <div class="svc-body">
           <h3>Endodoncia microscópica</h3>
           <p>Tratamiento de conductos con magnificación 10× y obturación tridimensional bajo aislamiento absoluto.</p>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span class="from">Desde <b>S/ 480</b></span>
-          <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <div class="svc-foot">
+            <span class="from">Desde <b>S/ 480</b></span>
+            <span class="arr">Ver más <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
         </div>
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div>
-          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 17l8-12 8 12M8 17h8"/></svg></div>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1597764690523-15bea4c581c9?auto=format&fit=crop&w=700&q=80')">
+          <span class="tag">Niños</span>
+        </div>
+        <div class="svc-body">
           <h3>Odontopediatría</h3>
-          <p>Sala temática, técnica tell-show-do y atención adaptada a niños desde los 2 años.</p>
+          <p>Sala temática y técnica tell-show-do. Atención adaptada a niños desde los 2 años.</p>
+          <div class="svc-foot">
+            <span class="from">Consulta <b>S/ 120</b></span>
+            <span class="arr">Ver más <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
         </div>
-        <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.6"/></svg></span>
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div>
-          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6h12v12H6zM9 9h6v6H9z"/></svg></div>
-          <h3>Estética + carillas</h3>
-          <p>Diseño de sonrisa, carillas E-max y blanqueamiento con bandeja a medida.</p>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1612528443702-f6741f70a049?auto=format&fit=crop&w=700&q=80')">
+          <span class="tag">Estética</span>
         </div>
-        <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        <div class="svc-body">
+          <h3>Diseño de sonrisa & carillas</h3>
+          <p>Mock-up digital antes de tocar el primer diente. Carillas E-max y blanqueamiento profesional con bandeja a medida.</p>
+          <div class="svc-foot">
+            <span class="from">Desde <b>S/ 1 500</b></span>
+            <span class="arr">Ver más <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </div>
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div>
-          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80')">
+          <span class="tag">Integral</span>
+        </div>
+        <div class="svc-body">
           <h3>Rehabilitación oral</h3>
-          <p>Casos complejos con pérdida múltiple de piezas, full-arch y prótesis fija/removible.</p>
+          <p>Casos complejos con pérdida múltiple de piezas, full-arch y prótesis fija o removible.</p>
+          <div class="svc-foot">
+            <span class="from">A medida</span>
+            <span class="arr">Ver más <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
         </div>
-        <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.6"/></svg></span>
+      </a>
+
+      <a class="svc reveal" href="#contacto">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1581585099522-f6ac2efe9b51?auto=format&fit=crop&w=700&q=80')">
+          <span class="tag">Preventiva</span>
+        </div>
+        <div class="svc-body">
+          <h3>Limpieza & prevención</h3>
+          <p>Profilaxis profesional, fluorización y sellantes. Higiene oral cada 6 meses para evitar tratamientos caros después.</p>
+          <div class="svc-foot">
+            <span class="from">Desde <b>S/ 130</b></span>
+            <span class="arr">Ver más <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="svc reveal" href="#contacto">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80')">
+          <span class="tag">Cirugía</span>
+        </div>
+        <div class="svc-body">
+          <h3>Cirugía oral & cordales</h3>
+          <p>Extracción de muelas del juicio, regeneración ósea e injerto previo a implantes — con sedación si se requiere.</p>
+          <div class="svc-foot">
+            <span class="from">Desde <b>S/ 350</b></span>
+            <span class="arr">Ver más <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </div>
       </a>
     </div>
   </div>

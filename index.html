@@ -338,36 +338,106 @@ section{padding:80px 0;position:relative}
 .r .who span{color:var(--soft);font-size:12px}
 
 /* FAQ */
-.faq-wrap{display:grid;grid-template-columns:.9fr 1.4fr;gap:60px;align-items:start}
-.faq{border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line);padding:22px 0}
+.faq-wrap{display:grid;grid-template-columns:.95fr 1.4fr;gap:60px;align-items:start}
+.faq-side-card{
+  display:flex;gap:14px;align-items:center;
+  background:#fff;border:1px solid var(--line-soft);border-radius:16px;
+  padding:14px 18px;margin-top:24px;box-shadow:0 18px 40px -32px rgba(10,31,36,.2);
+}
+.faq-side-card .av{
+  width:48px;height:48px;border-radius:50%;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--teal),var(--teal-d));
+  color:var(--mint);display:grid;place-items:center;
+  font-family:var(--serif);font-style:italic;font-size:22px;font-weight:600;
+}
+.faq-side-card b{display:block;font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.faq-side-card .meta{font-size:12px;color:var(--soft);display:flex;align-items:center;gap:6px;margin-top:2px}
+.faq-side-card .meta::before{content:"";width:6px;height:6px;border-radius:50%;background:#1f8a5b;box-shadow:0 0 0 0 #1f8a5b;animation:p 2s infinite}
+.faq-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.faq-stats div{padding:18px 14px;background:#fff;border:1px solid var(--line-soft);border-radius:14px;text-align:center}
+.faq-stats b{display:block;font-family:var(--serif);font-style:italic;font-size:30px;color:var(--teal-d);font-weight:600;line-height:1}
+.faq-stats span{display:block;margin-top:6px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.faq{display:flex;flex-direction:column;gap:12px}
+.faq details{
+  background:#fff;border:1px solid var(--line-soft);border-radius:16px;
+  transition:.25s var(--ease);overflow:hidden;
+}
+.faq details:hover{border-color:var(--line);box-shadow:0 18px 40px -30px rgba(10,31,36,.18)}
+.faq details[open]{border-color:rgba(15,118,110,.4);box-shadow:0 28px 60px -32px rgba(15,118,110,.28)}
 .faq summary{
-  list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;
+  list-style:none;cursor:pointer;display:flex;gap:18px;align-items:center;
+  padding:22px 24px;
   font-family:var(--sans);font-size:16px;font-weight:600;color:var(--ink)
 }
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{
-  content:"+";font-size:22px;color:var(--teal);
-  width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:0 0 auto;transition:.25s;
+.faq summary .qn{
+  flex:0 0 auto;width:38px;height:38px;border-radius:50%;
+  background:var(--bg2);color:var(--teal-d);
+  display:grid;place-items:center;
+  font-family:var(--serif);font-style:italic;font-size:16px;font-weight:600;
+  transition:.25s var(--ease);
 }
-.faq details[open] summary::after{content:"–";background:var(--teal);color:#fff;border-color:var(--teal);transform:rotate(180deg)}
-.faq p{margin-top:12px;color:var(--soft);font-size:14px;max-width:640px;line-height:1.6}
+.faq summary .qt{flex:1;line-height:1.35}
+.faq summary::after{
+  content:"+";font-size:24px;color:var(--teal);font-weight:300;
+  width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:0 0 auto;transition:.25s;
+}
+.faq details[open] summary::after{content:"–";background:var(--teal);color:#fff;border-color:var(--teal)}
+.faq details[open] summary .qn{background:var(--mint-soft);color:var(--teal-d)}
+.faq p{padding:0 24px 24px 80px;margin:0;color:var(--soft);font-size:14.5px;line-height:1.65}
+@media (max-width:680px){
+  .faq summary{padding:18px 18px;gap:14px;font-size:15px}
+  .faq summary .qn{width:34px;height:34px;font-size:14px}
+  .faq p{padding:0 18px 20px 18px}
+}
 
 /* CTA */
 .cta-final{
   background:linear-gradient(135deg,var(--ink) 0%, var(--teal-d) 100%);color:#fff;border-radius:var(--r-lg);overflow:hidden;
-  display:grid;grid-template-columns:1.1fr 1fr;position:relative;
+  display:grid;grid-template-columns:1.05fr 1fr;position:relative;
 }
 .cta-final::before{
   content:"";position:absolute;inset:0;
   background:radial-gradient(600px 300px at 100% 0%, rgba(94,234,212,.18), transparent 60%);
 }
-.cta-l{padding:60px 50px;display:flex;flex-direction:column;justify-content:center;position:relative}
-.cta-l h2{color:#fff;margin-bottom:14px}
+.cta-l{padding:56px 50px;display:flex;flex-direction:column;justify-content:center;position:relative;gap:24px}
+.cta-l h2{color:#fff;margin:0}
 .cta-l h2 .serif{color:var(--mint)}
-.cta-l p{color:#b8d4d1;max-width:420px;margin-bottom:24px;font-size:15px}
+.cta-l > p{color:#b8d4d1;max-width:420px;font-size:15px;margin:0}
+.cta-include{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;padding:20px 22px;
+}
+.cta-include .ihead{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);font-weight:700;margin-bottom:14px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.cta-include .ihead::before{content:"";width:18px;height:1px;background:var(--mint)}
+.cta-include ul{list-style:none;display:grid;gap:10px}
+.cta-include li{display:flex;gap:12px;align-items:center;font-size:14px;color:#dbe9e8;font-weight:500}
+.cta-include li svg{flex:0 0 auto;width:18px;height:18px;color:var(--mint)}
+.cta-lucy{
+  display:flex;gap:14px;align-items:center;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:14px 18px;
+}
+.cta-lucy .av{
+  width:46px;height:46px;border-radius:50%;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--mint),var(--teal));color:var(--teal-d);
+  display:grid;place-items:center;
+  font-family:var(--serif);font-style:italic;font-size:22px;font-weight:600;
+}
+.cta-lucy b{display:block;color:#fff;font-size:13.5px;font-weight:600}
+.cta-lucy .meta{font-size:11.5px;color:#9fb5b9;display:flex;align-items:center;gap:6px;margin-top:3px}
+.cta-lucy .meta::before{content:"";width:6px;height:6px;border-radius:50%;background:#3edc8a;box-shadow:0 0 0 0 #3edc8a;animation:p 2s infinite}
 .cta-r{background:rgba(255,255,255,.05);padding:50px 44px;border-left:1px solid rgba(255,255,255,.08);position:relative}
-.cta-r h3{color:#fff;font-size:18px;margin-bottom:20px;font-weight:600}
+.cta-r .pill-top{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,122,92,.18);color:#ffb39b;
+  padding:6px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;
+}
+.cta-r .pill-top::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--coral)}
+.cta-r h3{color:#fff;font-size:20px;margin-bottom:20px;font-weight:600;letter-spacing:-.01em}
 .f-grid{display:grid;gap:14px}
 .f-field{display:flex;flex-direction:column;gap:6px}
 .f-field label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9fb5b9;font-weight:600}
@@ -375,9 +445,13 @@ section{padding:80px 0;position:relative}
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#fff;
   padding:12px 14px;border-radius:10px;font:inherit;outline:none;transition:.2s;
 }
+.f-field input::placeholder,.f-field textarea::placeholder{color:#6b8388}
 .f-field input:focus,.f-field select:focus,.f-field textarea:focus{border-color:var(--mint);background:rgba(255,255,255,.08)}
-.f-grid button{background:var(--coral);color:#fff;padding:14px;border-radius:10px;font-weight:600;margin-top:6px;transition:.2s}
-.f-grid button:hover{background:#ff5c39}
+.f-field select option{color:var(--ink);background:#fff;font-weight:500}
+.f-grid button{background:var(--coral);color:#fff;padding:14px;border-radius:10px;font-weight:600;margin-top:6px;transition:.2s;font-size:15px}
+.f-grid button:hover{background:#ff5c39;transform:translateY(-1px)}
+.f-micro{font-size:11.5px;color:#9fb5b9;text-align:center;margin-top:12px;line-height:1.5}
+.f-micro b{color:var(--mint);font-weight:600}
 
 /* Footer */
 footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
@@ -412,6 +486,91 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
+/* === CAPAS EDITORIALES === */
+
+/* Scroll progress */
+.scroll-prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--coral),var(--mint));z-index:100;transition:width .15s linear;box-shadow:0 0 12px rgba(255,122,92,.55)}
+
+/* Cursor follower (desktop) */
+.cursor-blob{position:fixed;top:0;left:0;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,92,.22),rgba(94,234,212,.05) 55%,transparent 70%);pointer-events:none;mix-blend-mode:multiply;transform:translate(-50%,-50%);z-index:1;transition:opacity .3s;opacity:0;filter:blur(8px)}
+.cursor-blob.on{opacity:1}
+@media (max-width:1080px){.cursor-blob{display:none}}
+
+/* Crosshairs en hero */
+.hero .crosshair{position:absolute;width:22px;height:22px;color:var(--teal);opacity:.4;z-index:1}
+.hero .crosshair::before,.hero .crosshair::after{content:"";position:absolute;background:currentColor}
+.hero .crosshair::before{top:50%;left:0;right:0;height:1px;transform:translateY(-50%)}
+.hero .crosshair::after{left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%)}
+.hero .ch-tl{top:24px;left:24px}
+.hero .ch-tr{top:24px;right:24px}
+.hero .ch-bl{bottom:24px;left:24px}
+.hero .ch-br{bottom:24px;right:24px}
+
+/* Ribbon seal en hero */
+.ribbon-seal{position:absolute;top:-12px;right:-12px;width:108px;height:108px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.1;text-align:center;z-index:5;box-shadow:0 18px 40px -14px rgba(255,122,92,.55);transform:rotate(-8deg);padding:14px}
+.ribbon-seal::before{content:"";position:absolute;inset:6px;border:1px dashed rgba(255,255,255,.55);border-radius:50%}
+.ribbon-seal b{display:block;font-family:var(--sans);font-weight:800;font-size:22px;letter-spacing:.02em;font-style:normal;line-height:1}
+.ribbon-seal small{display:block;font-family:var(--sans);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;font-style:normal;margin-top:4px;font-weight:600}
+
+/* Marquee */
+.marquee{background:var(--ink);color:var(--mint);padding:18px 0;overflow:hidden;border-top:1px solid rgba(94,234,212,.12);border-bottom:1px solid rgba(94,234,212,.12);position:relative}
+.marquee-track{display:flex;gap:60px;width:max-content;animation:scroll 38s linear infinite;white-space:nowrap}
+.marquee-track span{font-family:var(--serif);font-size:34px;font-style:italic;color:var(--mint);letter-spacing:-.01em;line-height:1}
+.marquee-track i{font-style:normal;color:var(--coral);margin:0 12px;font-size:24px;vertical-align:middle}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Números gigantes en process */
+.process{position:relative}
+.giant-num-bg{position:absolute;font-family:var(--serif);font-style:italic;font-weight:400;color:rgba(94,234,212,.05);font-size:clamp(180px,22vw,320px);line-height:.85;pointer-events:none;z-index:0;letter-spacing:-.05em;user-select:none}
+.giant-num-bg.gn-left{top:60px;left:-40px}
+.giant-num-bg.gn-right{bottom:30px;right:-30px}
+.process .wrap{position:relative;z-index:2}
+
+/* Drop cap (tech section) */
+.drop-cap::first-letter{font-family:var(--serif);font-style:italic;font-size:5.5em;line-height:.8;float:left;margin:6px 14px 0 0;color:var(--teal-d);font-weight:400}
+
+/* Sello giratorio garantía */
+.seal-rot{position:absolute;top:-46px;right:40px;width:128px;height:128px;z-index:5;animation:spin 22s linear infinite}
+.seal-rot text{font-family:var(--sans);font-size:9px;letter-spacing:.34em;fill:var(--mint);font-weight:700;text-transform:uppercase}
+.seal-rot .core{position:absolute;inset:32px;border-radius:50%;background:var(--coral);display:grid;place-items:center;color:#fff;font-family:var(--serif);font-style:italic;font-size:14px;line-height:1.1;text-align:center;padding:8px;animation:spin 22s linear infinite reverse}
+.seal-rot .core b{display:block;font-family:var(--sans);font-weight:800;font-size:18px;font-style:normal;letter-spacing:.04em}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Sección antes/después */
+.compare{background:var(--bg);position:relative;overflow:hidden}
+.compare .head{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;margin-bottom:44px;align-items:end}
+.compare-stage{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:16/9;background:var(--bg2);box-shadow:0 40px 80px -40px rgba(10,31,36,.35);user-select:none;cursor:ew-resize}
+.compare-stage .layer{position:absolute;inset:0;background-size:cover;background-position:center}
+.compare-stage .before{z-index:1}
+.compare-stage .after{z-index:2;clip-path:inset(0 50% 0 0)}
+.compare-stage .handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;z-index:5;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(10,31,36,.25),0 12px 30px -8px rgba(0,0,0,.4);pointer-events:none}
+.compare-stage .handle::before{content:"⇄";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:22px;font-weight:600;box-shadow:0 14px 30px -6px rgba(0,0,0,.35)}
+.compare-stage .lbl{position:absolute;top:18px;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;backdrop-filter:blur(8px);z-index:6}
+.compare-stage .lbl-b{left:18px;background:rgba(10,31,36,.7);color:#fff}
+.compare-stage .lbl-a{right:18px;background:rgba(255,255,255,.92);color:var(--ink)}
+.compare-stage .pulse-tip{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.92);color:var(--ink);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:6px 14px;border-radius:999px;z-index:6;animation:pulseTip 2.4s ease-in-out infinite}
+@keyframes pulseTip{0%,100%{opacity:.85}50%{opacity:.5;transform:translateX(-50%) translateY(2px)}}
+
+/* Magnetic CTA glow */
+.btn-primary{position:relative;overflow:hidden}
+.btn-primary::before{content:"";position:absolute;inset:0;background:radial-gradient(120px 120px at var(--mx,50%) var(--my,50%),rgba(94,234,212,.5),transparent 60%);opacity:0;transition:opacity .3s}
+.btn-primary:hover::before{opacity:1}
+
+/* Hero counter polish */
+.hero-meta div b.flashing{color:var(--coral);transition:color .8s}
+
+/* Float side label */
+.side-label{position:absolute;top:50%;right:-100px;transform:translateY(-50%) rotate(90deg);font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--soft);font-weight:600;z-index:3}
+@media (max-width:1280px){.side-label{display:none}}
+
+@media (max-width:1080px){
+  .compare .head{grid-template-columns:1fr}
+  .ribbon-seal{width:88px;height:88px;font-size:13px;top:-8px;right:8px}
+  .ribbon-seal b{font-size:18px}
+  .seal-rot{width:96px;height:96px;top:-32px;right:18px}
+  .marquee-track span{font-size:24px}
+}
+
 @media (max-width:1080px){
   .hero .row,.tech-grid,.fin .row,.cta-final,.faq-wrap{grid-template-columns:1fr;gap:40px}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
@@ -436,9 +595,153 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
   .wa{display:none}
   body{padding-bottom:72px}
 }
+
+/* === Modal Reserva Rápida === */
+.modal{
+  position:fixed;inset:0;z-index:200;display:none;
+  align-items:center;justify-content:center;padding:20px;
+}
+.modal.open{display:flex}
+.modal-overlay{
+  position:absolute;inset:0;background:rgba(10,31,36,.6);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  animation:mFade .3s var(--ease);
+}
+.modal-card{
+  position:relative;background:#fff;border-radius:24px;
+  padding:0;max-width:480px;width:100%;overflow:hidden;
+  box-shadow:0 40px 100px -20px rgba(10,31,36,.5);
+  animation:mPop .4s var(--ease);max-height:94vh;display:flex;flex-direction:column;
+}
+.modal-close{
+  position:absolute;top:14px;right:16px;width:36px;height:36px;border-radius:50%;z-index:3;
+  background:rgba(255,255,255,.16);color:#fff;font-size:22px;font-weight:300;line-height:1;
+  display:grid;place-items:center;transition:.25s;backdrop-filter:blur(4px);
+}
+.modal-close:hover{background:#fff;color:var(--ink);transform:rotate(90deg)}
+.m-header{
+  position:relative;background:linear-gradient(135deg,var(--ink) 0%,var(--teal-d) 100%);
+  color:#fff;padding:24px 28px;display:flex;align-items:center;gap:14px;
+}
+.m-header::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(400px 200px at 100% 0%,rgba(94,234,212,.22),transparent 60%);
+  pointer-events:none;
+}
+.m-header .m-av{
+  position:relative;z-index:2;flex:0 0 auto;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,var(--mint),var(--teal));color:var(--teal-d);
+  display:grid;place-items:center;
+  font-family:var(--serif);font-style:italic;font-size:24px;font-weight:600;
+  box-shadow:0 0 0 3px rgba(94,234,212,.25);
+}
+.m-header .m-who{position:relative;z-index:2;display:flex;flex-direction:column;gap:2px}
+.m-header .m-who b{font-size:14px;font-weight:600;color:#fff;letter-spacing:-.01em}
+.m-header .m-who .m-status{
+  font-size:12px;color:#9fdbd4;display:inline-flex;align-items:center;gap:6px;font-weight:500;
+}
+.m-header .m-who .m-status::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:#3edc8a;
+  box-shadow:0 0 0 0 #3edc8a;animation:p 2s infinite;
+}
+.m-body{padding:26px 28px 22px;overflow-y:auto}
+.m-body .m-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--mint-soft);color:var(--teal-d);
+  padding:5px 11px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;
+}
+.m-body h3{font-size:24px;margin:0 0 10px;letter-spacing:-.02em;line-height:1.15}
+.m-body h3 .serif{color:var(--teal-d)}
+.m-body > p{color:var(--slate);font-size:13.5px;margin:0 0 20px;line-height:1.55}
+.m-body > p b{color:var(--ink);font-weight:600}
+.m-body form{display:grid;gap:12px}
+.m-body .mf-field{display:flex;flex-direction:column;gap:5px}
+.m-body .mf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m-body .mf-field label{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
+.m-body input[type="date"],.m-body input[type="time"]{color:var(--ink);font-variant-numeric:tabular-nums;cursor:pointer}
+.m-body input[type="date"]::-webkit-calendar-picker-indicator,.m-body input[type="time"]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.55;filter:invert(15%) sepia(40%) saturate(800%) hue-rotate(140deg)}
+.m-body input,.m-body select,.m-body textarea{
+  padding:13px 14px;border:1.5px solid var(--line-soft);border-radius:11px;
+  font:inherit;background:var(--bg);color:var(--ink);outline:none;transition:.2s;font-size:14.5px;
+}
+.m-body input:focus,.m-body select:focus,.m-body textarea:focus{border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(15,118,110,.08)}
+.m-body input::placeholder,.m-body textarea::placeholder{color:var(--soft)}
+.m-body button[type="submit"]{
+  background:var(--coral);color:#fff;padding:15px 16px;border-radius:12px;
+  font-weight:700;margin-top:8px;transition:.25s var(--ease);font-size:15px;border:0;cursor:pointer;
+  letter-spacing:.01em;box-shadow:0 14px 30px -10px rgba(255,122,92,.55);
+}
+.m-body button[type="submit"]:hover{background:#ff5c39;transform:translateY(-2px);box-shadow:0 18px 36px -10px rgba(255,122,92,.7)}
+.m-body button[type="submit"]:disabled{background:#1f8a5b;cursor:default;transform:none;box-shadow:0 14px 30px -10px rgba(31,138,91,.4)}
+.m-body button[type="submit"].urgent{background:#dc2626;box-shadow:0 14px 30px -10px rgba(220,38,38,.6);animation:urgentPulse 1.6s ease-in-out infinite}
+.m-body button[type="submit"].urgent:hover{background:#b91c1c;box-shadow:0 18px 36px -10px rgba(220,38,38,.75)}
+.f-grid button.urgent{background:#dc2626;animation:urgentPulse 1.6s ease-in-out infinite}
+.f-grid button.urgent:hover{background:#b91c1c}
+@keyframes urgentPulse{0%,100%{box-shadow:0 14px 30px -10px rgba(220,38,38,.6),0 0 0 0 rgba(220,38,38,.4)}50%{box-shadow:0 14px 30px -10px rgba(220,38,38,.6),0 0 0 10px rgba(220,38,38,0)}}
+.m-foot{
+  background:var(--bg2);border-top:1px solid var(--line-soft);
+  padding:14px 22px 16px;
+}
+.m-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.m-trust div{
+  display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;
+  font-size:10.5px;color:var(--slate);font-weight:600;letter-spacing:.02em;
+}
+.m-trust svg{width:18px;height:18px;color:var(--teal)}
+.m-foot-link{display:block;text-align:center;font-size:12px;color:var(--soft);padding-top:8px;border-top:1px dashed var(--line-soft)}
+.m-foot-link a{color:var(--teal);font-weight:600}
+.m-foot-link a:hover{text-decoration:underline}
+@keyframes mFade{from{opacity:0}to{opacity:1}}
+@keyframes mPop{from{opacity:0;transform:translateY(24px) scale(.94)}to{opacity:1;transform:none}}
+@media (max-width:680px){
+  .modal-card{border-radius:20px}
+  .m-header{padding:20px 22px}
+  .m-body{padding:22px 22px 20px}
+  .m-body h3{font-size:21px}
+  .m-foot{padding:14px 18px 16px}
+}
+
+/* === Social proof toast === */
+.social-toast{
+  position:fixed;left:22px;bottom:22px;z-index:88;
+  display:flex;gap:14px;align-items:center;
+  background:#fff;border:1px solid var(--line-soft);
+  border-radius:16px;padding:14px 36px 14px 16px;
+  box-shadow:0 28px 60px -20px rgba(10,31,36,.28);
+  max-width:340px;min-width:280px;
+  opacity:0;transform:translateY(20px) scale(.96);pointer-events:none;
+  transition:opacity .5s var(--ease),transform .5s var(--ease);
+}
+.social-toast.show{opacity:1;transform:none;pointer-events:auto}
+.social-toast.swap .st-body, .social-toast.swap .st-av{opacity:0;transform:translateY(-4px);transition:opacity .3s ease,transform .3s ease}
+.social-toast .st-body, .social-toast .st-av{transition:opacity .3s ease,transform .3s ease}
+.social-toast .st-av{
+  width:46px;height:46px;border-radius:50%;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--teal),var(--teal-d));
+  color:var(--mint);display:grid;place-items:center;
+  font-weight:700;font-size:14px;letter-spacing:.04em;
+}
+.social-toast .st-body{display:flex;flex-direction:column;gap:1px;font-size:13px;line-height:1.3;min-width:0}
+.social-toast .st-body b{color:var(--ink);font-weight:700;font-size:13.5px;letter-spacing:-.01em}
+.social-toast .st-body .act{color:var(--slate);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.social-toast .st-body .tm{color:var(--soft);font-size:11px;margin-top:3px;display:inline-flex;align-items:center;gap:5px;font-weight:500}
+.social-toast .st-body .tm::before{content:"";width:6px;height:6px;border-radius:50%;background:#1f8a5b;box-shadow:0 0 0 0 #1f8a5b;animation:p 2s infinite}
+.social-toast .st-x{
+  position:absolute;top:8px;right:10px;width:22px;height:22px;border-radius:50%;
+  color:var(--soft);font-size:18px;line-height:1;display:grid;place-items:center;
+  transition:.2s;background:transparent;
+}
+.social-toast .st-x:hover{background:var(--bg2);color:var(--ink)}
+@media (max-width:680px){
+  .social-toast{left:10px;right:10px;bottom:80px;max-width:none;min-width:0}
+}
 </style>
 </head>
 <body>
+
+<div class="scroll-prog" id="scrollProg"></div>
+<div class="cursor-blob" id="cursorBlob"></div>
 
 <div class="announce">
   <span>🦷 <b>Aceptando pacientes nuevos</b> · evaluación inicial S/120 — descontable del primer tratamiento</span>
@@ -467,6 +770,11 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
 
 <!-- HERO -->
 <header class="hero">
+  <span class="crosshair ch-tl"></span>
+  <span class="crosshair ch-tr"></span>
+  <span class="crosshair ch-bl"></span>
+  <span class="crosshair ch-br"></span>
+  <span class="side-label">N° 01 — Atención multidisciplinaria · Lima</span>
   <div class="wrap row">
     <div class="reveal">
       <span class="eyebrow">Centro odontológico de especialidades</span>
@@ -484,6 +792,12 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
     </div>
 
     <div class="appt-card reveal">
+      <div class="ribbon-seal" aria-hidden="true">
+        <div>
+          <b>2026</b>
+          <small>Aceptando pacientes</small>
+        </div>
+      </div>
       <div class="appt-hero-img">
         <span class="tag">Aceptando hoy</span>
       </div>
@@ -521,19 +835,13 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
   </div>
 </header>
 
-<!-- TRUST -->
-<section class="trust" style="padding:50px 0">
-  <div class="wrap row">
-    <span class="label">Trabajamos con</span>
-    <div class="logos">
-      <span>Straumann</span>
-      <span>NEODENT</span>
-      <span>Invisalign</span>
-      <span>3SHAPE</span>
-      <span>Nobel Biocare</span>
-    </div>
+<!-- MARQUEE EDITORIAL -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Implantes <i>★</i> Ortodoncia invisible <i>★</i> Diseño de sonrisa <i>★</i> Odontopediatría <i>★</i> Endodoncia microscópica <i>★</i> Periodoncia <i>★</i> Rehabilitación oral <i>★</i> Cirugía guiada</span>
+    <span>Implantes <i>★</i> Ortodoncia invisible <i>★</i> Diseño de sonrisa <i>★</i> Odontopediatría <i>★</i> Endodoncia microscópica <i>★</i> Periodoncia <i>★</i> Rehabilitación oral <i>★</i> Cirugía guiada</span>
   </div>
-</section>
+</div>
 
 <!-- ESPECIALIDADES -->
 <section id="especialidades">
@@ -562,7 +870,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1611690045208-bff58a4cabea?auto=format&fit=crop&w=700&q=80')">
+        <div class="svc-img" style="background-image:url('img/ortodoncia.jpg')">
           <span class="tag">Ortodoncia</span>
         </div>
         <div class="svc-body">
@@ -646,7 +954,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1581585099522-f6ac2efe9b51?auto=format&fit=crop&w=700&q=80')">
+        <div class="svc-img" style="background-image:url('img/preventiva.jpg')">
           <span class="tag">Preventiva</span>
         </div>
         <div class="svc-body">
@@ -678,6 +986,8 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
 
 <!-- PROCESO -->
 <section id="proceso" class="process">
+  <span class="giant-num-bg gn-left" aria-hidden="true">01</span>
+  <span class="giant-num-bg gn-right" aria-hidden="true">04</span>
   <div class="wrap">
     <div class="shead reveal">
       <div>
@@ -719,7 +1029,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       <div class="reveal">
         <span class="eyebrow">Tecnología clínica</span>
         <h2 style="margin-top:18px">Diagnóstico <span class="serif">digital</span><br>antes que decisiones.</h2>
-        <p style="margin-top:18px;color:var(--slate);font-size:17px;max-width:480px">Nuestros especialistas no operan a ciegas. Cada caso pasa por planificación digital y simulación antes del primer procedimiento.</p>
+        <p class="drop-cap" style="margin-top:18px;color:var(--slate);font-size:17px;max-width:480px">Nuestros especialistas no operan a ciegas. Cada caso pasa por planificación digital y simulación antes del primer procedimiento.</p>
         <ul>
           <li>
             <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg></div>
@@ -756,8 +1066,33 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
   </div>
 </section>
 
+<!-- ANTES / DESPUÉS -->
+<section id="antes-despues" class="compare">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <span class="eyebrow">Resultados</span>
+        <h2 style="margin-top:14px">Lo que <span class="serif">no se dice</span><br>en el folleto.</h2>
+      </div>
+      <p style="color:var(--slate);font-size:17px;max-width:520px">Arrastra la línea para ver el caso real de una paciente atendida en COE Dental — diseño de sonrisa con 8 carillas E-max, tratada por nuestro equipo de estética. Antes y después.</p>
+    </div>
+    <div class="compare-stage reveal" id="cmpStage">
+      <div class="layer before" style="background-image:url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1400&q=80')"></div>
+      <div class="layer after" id="cmpAfter" style="background-image:url('img/despues-sonrisa.jpg')"></div>
+      <span class="lbl lbl-b">Antes</span>
+      <span class="lbl lbl-a">Después · 6 semanas</span>
+      <span class="handle" id="cmpHandle"></span>
+      <span class="pulse-tip">← arrastra para comparar →</span>
+    </div>
+  </div>
+</section>
+
 <!-- FINANCIAMIENTO -->
 <section id="financiamiento" class="fin">
+  <div class="seal-rot" aria-hidden="true">
+    <svg viewBox="0 0 128 128" width="128" height="128"><defs><path id="circ" d="M 64,64 m -52,0 a 52,52 0 1,1 104,0 a 52,52 0 1,1 -104,0"/></defs><text><textPath href="#circ">GARANTÍA CLÍNICA · COE DENTAL · LIMA PE · DESDE 2008 · </textPath></text></svg>
+    <div class="core"><div><b>5</b>años<br>prótesis</div></div>
+  </div>
   <div class="wrap">
     <div class="row">
       <div class="reveal">
@@ -833,59 +1168,91 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
 </section>
 
 <!-- FAQ -->
-<section id="faq" style="background:var(--bg2)">
+<section id="faq" style="background:var(--bg2);padding-bottom:50px">
   <div class="wrap faq-wrap">
     <div class="reveal">
       <span class="eyebrow">Preguntas</span>
       <h2 style="margin-top:14px">Lo que más nos <span class="serif">preguntan.</span></h2>
-      <p style="color:var(--slate);margin-top:18px">¿Tu pregunta no está aquí? Escríbenos por WhatsApp — responde un coordinador clínico, no un bot.</p>
-      <a href="https://wa.me/51900000000" target="_blank" class="btn btn-wa" style="margin-top:18px">WhatsApp directo</a>
+      <p style="color:var(--slate);margin-top:18px;max-width:420px">¿Tu pregunta no está aquí? Te responde un coordinador clínico de verdad — no un bot.</p>
+
+      <div class="faq-side-card">
+        <div class="av">L</div>
+        <div>
+          <b>Lucía · Coordinadora clínica</b>
+          <div class="meta">En línea · Lun–Sáb 9:00–20:00</div>
+        </div>
+      </div>
+
+      <div class="faq-stats">
+        <div><b>&lt; 4 h</b><span>Respuesta promedio</span></div>
+        <div><b>1.2k</b><span>Casos resueltos</span></div>
+      </div>
+
+      <a href="https://wa.me/51900000000" target="_blank" class="btn btn-wa" style="margin-top:22px">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M20 4.5C18 2.5 15.3 1.4 12.5 1.4 6.8 1.4 2.2 6 2.2 11.7c0 1.8.5 3.6 1.4 5.1L2 22.4l5.8-1.5c1.5.8 3.2 1.2 5 1.2 5.7 0 10.3-4.6 10.3-10.3 0-2.7-1.1-5.4-3.1-7.3z"/></svg>
+        Escribir por WhatsApp
+      </a>
     </div>
 
     <div class="faq reveal">
       <details open>
-        <summary>¿Cómo es la evaluación inicial?</summary>
-        <p>60 minutos con el especialista que necesites. Incluye examen clínico, radiografía panorámica si aplica y entrega de plan de tratamiento por correo en 48 h. Costo S/ 120 — descontable del primer tratamiento que decidas iniciar.</p>
-      </details>
-      <details>
-        <summary>¿Atienden urgencias el mismo día?</summary>
+        <summary><span class="qn">01</span><span class="qt">¿Atienden urgencias el mismo día?</span></summary>
         <p>Sí. Reservamos cupos diarios de urgencia. Llama o escribe por WhatsApp y un coordinador te asigna el primer espacio libre — usualmente en menos de 4 horas.</p>
       </details>
       <details>
-        <summary>¿Tienen financiamiento sin tarjeta?</summary>
-        <p>Sí, plan propio hasta 12 cuotas sin interés y hasta 24 cuotas con tasa preferente para tratamientos sobre S/ 8 000. Aprobación en 24 h con DNI y comprobante simple de ingresos.</p>
-      </details>
-      <details>
-        <summary>¿Qué garantía tienen los implantes?</summary>
+        <summary><span class="qn">02</span><span class="qt">¿Qué garantía tienen los implantes?</span></summary>
         <p>Garantía de por vida del fabricante (Straumann o Neodent) sobre el implante + 5 años clínicos sobre prótesis siempre que asistas a los controles anuales gratuitos.</p>
       </details>
       <details>
-        <summary>¿Atienden a niños?</summary>
+        <summary><span class="qn">03</span><span class="qt">¿Atienden a niños?</span></summary>
         <p>Sí, desde los 2 años. Tenemos sala temática y odontopediatra entrenada en técnicas conductuales. Primera visita "no invasiva" pensada para que el niño quiera volver.</p>
-      </details>
-      <details>
-        <summary>¿Hacen cirugía con sedación?</summary>
-        <p>Sí, sedación consciente y endovenosa con anestesiólogo en sala para casos quirúrgicos largos o pacientes con miedo dental severo.</p>
       </details>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section id="contacto">
+<section id="contacto" style="padding-top:60px">
   <div class="wrap">
     <div class="cta-final reveal">
       <div class="cta-l">
         <span class="eyebrow" style="color:var(--mint)">Reserva</span>
-        <h2 style="margin-top:14px">Empieza por la <span class="serif">evaluación.</span></h2>
-        <p>Déjanos tus datos y un coordinador clínico te llama dentro de 24 horas hábiles para confirmar fecha, especialista y motivo. Sin compromiso.</p>
-        <div style="display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:#b8d4d1;margin-top:12px">
-          <span>· Respuesta en 24 h</span>
-          <span>· Datos protegidos</span>
-          <span>· Atención bilingüe</span>
+        <h2>Empieza por la <span class="serif">evaluación.</span></h2>
+        <p>Déjanos tus datos y te llamamos dentro de 24 horas hábiles para confirmar fecha, especialista y motivo. <b style="color:#fff">Sin compromiso.</b></p>
+
+        <div class="cta-include">
+          <div class="ihead">Tu evaluación incluye</div>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              60 min con el especialista que corresponda
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Radiografía panorámica si aplica
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Plan de tratamiento por escrito en 48 h
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              S/ 120 — descontable del primer tratamiento
+            </li>
+          </ul>
+        </div>
+
+        <div class="cta-lucy">
+          <div class="av">L</div>
+          <div>
+            <b>Te llamará Lucía · Coordinadora</b>
+            <div class="meta">Disponible ahora · Lun–Sáb 9–20 h</div>
+          </div>
         </div>
       </div>
-      <form class="cta-r" onsubmit="event.preventDefault();this.querySelector('button').textContent='Enviado ✓';this.querySelector('button').disabled=true;">
+
+      <form class="cta-r" onsubmit="event.preventDefault();this.querySelector('button').textContent='Enviado ✓ Te llamamos pronto';this.querySelector('button').disabled=true;">
+        <span class="pill-top">Respuesta en menos de 24 h</span>
         <h3>Solicita tu cita</h3>
         <div class="f-grid">
           <div class="f-field">
@@ -913,7 +1280,8 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
             <label for="m">Mensaje (opcional)</label>
             <textarea id="m" rows="3" placeholder="Cuéntanos en una línea..."></textarea>
           </div>
-          <button type="submit">Solicitar llamada →</button>
+          <button type="submit">Contactar inmediato →</button>
+          <p class="f-micro">Tus datos están <b>protegidos</b> · No compartimos información con terceros · Atención <b>bilingüe ES/EN</b></p>
         </div>
       </form>
     </div>
@@ -973,6 +1341,111 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
   Chatear
 </a>
 
+<!-- Modal Reserva Rápida -->
+<div class="modal" id="resModal" aria-hidden="true" role="dialog" aria-labelledby="resModalTitle">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Cerrar">×</button>
+
+    <div class="m-header">
+      <div class="m-av">L</div>
+      <div class="m-who">
+        <b>Coordinación clínica COE</b>
+        <span class="m-status">En línea ahora · Respuesta inmediata</span>
+      </div>
+    </div>
+
+    <div class="m-body">
+      <span class="m-pill">Reserva rápida</span>
+      <h3 id="resModalTitle">Empieza por tu <span class="serif">evaluación.</span></h3>
+      <p>Completa el formulario y un <b>coordinador clínico</b> se comunicará contigo lo más pronto posible para confirmar fecha, especialista y motivo de tu evaluación. Si se trata de una <b>urgencia</b>, te contactamos cuanto antes.</p>
+
+      <form id="resForm" autocomplete="on">
+        <div class="mf-field">
+          <label for="rn">Nombre completo</label>
+          <input id="rn" name="name" required placeholder="Tu nombre" autocomplete="name" />
+        </div>
+        <div class="mf-field">
+          <label for="rt">WhatsApp</label>
+          <input id="rt" name="phone" required type="tel" placeholder="+51 9..." autocomplete="tel" />
+        </div>
+        <div class="mf-row">
+          <div class="mf-field">
+            <label for="rdate">Fecha preferida</label>
+            <input id="rdate" name="date" type="date" required />
+          </div>
+          <div class="mf-field">
+            <label for="rtime">Hora preferida</label>
+            <select id="rtime" name="time" required>
+              <option value="">Elegir…</option>
+              <optgroup label="Mañana">
+                <option>09:00</option>
+                <option>10:00</option>
+                <option>11:00</option>
+                <option>12:00</option>
+              </optgroup>
+              <optgroup label="Tarde">
+                <option>14:00</option>
+                <option>15:00</option>
+                <option>16:00</option>
+                <option>17:00</option>
+              </optgroup>
+              <optgroup label="Noche">
+                <option>18:00</option>
+                <option>19:00</option>
+                <option>20:00</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="mf-field">
+          <label for="rs">¿Qué te interesa?</label>
+          <select id="rs" name="svc">
+            <option>No estoy seguro / evaluación general</option>
+            <option>Implantes</option>
+            <option>Ortodoncia / invisible</option>
+            <option>Periodoncia / encías</option>
+            <option>Endodoncia</option>
+            <option>Estética / carillas</option>
+            <option>Odontopediatría (niños)</option>
+            <option>Urgencia</option>
+          </select>
+        </div>
+        <button type="submit">Contactar inmediato →</button>
+      </form>
+    </div>
+
+    <div class="m-foot">
+      <div class="m-trust">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Datos protegidos
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Respuesta inmediata
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Bilingüe ES / EN
+        </div>
+      </div>
+      <div class="m-foot-link">¿Prefieres el formulario completo? <a href="#contacto" data-skip-modal>Ir abajo ↓</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- Social proof toast -->
+<div class="social-toast" id="socialToast" aria-live="polite" aria-atomic="true">
+  <div class="st-av" id="stAv">CM</div>
+  <div class="st-body">
+    <b id="stName">Carlos M.</b>
+    <span class="act" id="stAct">Reservó · Implantes</span>
+    <span class="tm" id="stTime">hace 12 min · Lima</span>
+  </div>
+  <button class="st-x" id="stX" aria-label="Cerrar notificación">×</button>
+</div>
+
 <!-- Sticky CTA mobile bar -->
 <div class="mobile-bar" aria-label="Acciones rápidas">
   <a href="#contacto" class="b-res">Reservar evaluación</a>
@@ -1022,6 +1495,218 @@ document.querySelector('.burger')?.addEventListener('click', ()=>{
   const v = m.style.display === 'flex';
   m.style.cssText = v ? '' : 'display:flex;flex-direction:column;position:absolute;top:100%;left:20px;right:20px;background:var(--bg);padding:20px;border:1px solid var(--line);border-radius:14px;box-shadow:0 30px 60px -30px rgba(10,31,36,.3)';
 });
+
+// === CAPAS EDITORIALES — interactividad ===
+
+// Scroll progress
+const prog = document.getElementById('scrollProg');
+const updateProg = ()=>{
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  prog.style.width = pct + '%';
+};
+window.addEventListener('scroll', updateProg, {passive:true});
+updateProg();
+
+// Cursor blob
+const blob = document.getElementById('cursorBlob');
+let bx=window.innerWidth/2, by=window.innerHeight/2, tx=bx, ty=by;
+document.addEventListener('mousemove', e=>{
+  tx = e.clientX; ty = e.clientY;
+  blob.classList.add('on');
+});
+const animBlob = ()=>{
+  bx += (tx-bx)*.12; by += (ty-by)*.12;
+  blob.style.transform = `translate(${bx}px,${by}px) translate(-50%,-50%)`;
+  requestAnimationFrame(animBlob);
+};
+animBlob();
+
+// Magnetic glow en btn-primary
+document.querySelectorAll('.btn-primary').forEach(b=>{
+  b.addEventListener('mousemove', e=>{
+    const r = b.getBoundingClientRect();
+    b.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    b.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+// Antes/Después slider
+(function(){
+  const stage = document.getElementById('cmpStage');
+  if(!stage) return;
+  const after = document.getElementById('cmpAfter');
+  const handle = document.getElementById('cmpHandle');
+  const tip = stage.querySelector('.pulse-tip');
+  let dragging = false, started = false;
+  const setPct = (pct)=>{
+    pct = Math.max(2, Math.min(98, pct));
+    after.style.clipPath = `inset(0 ${100-pct}% 0 0)`;
+    handle.style.left = pct + '%';
+  };
+  const move = (clientX)=>{
+    const r = stage.getBoundingClientRect();
+    const pct = ((clientX - r.left) / r.width) * 100;
+    setPct(pct);
+    if(!started){ started=true; tip && tip.remove(); }
+  };
+  stage.addEventListener('mousedown', e=>{dragging=true; move(e.clientX);});
+  window.addEventListener('mousemove', e=>{ if(dragging) move(e.clientX); });
+  window.addEventListener('mouseup', ()=>dragging=false);
+  stage.addEventListener('touchstart', e=>{dragging=true; move(e.touches[0].clientX);},{passive:true});
+  stage.addEventListener('touchmove', e=>{ if(dragging) move(e.touches[0].clientX); },{passive:true});
+  stage.addEventListener('touchend', ()=>dragging=false);
+  // Auto-hint: pequeño bamboleo al entrar en viewport
+  const sio = new IntersectionObserver((ents)=>{
+    ents.forEach(e=>{
+      if(e.isIntersecting && !started){
+        let n = 0;
+        const hint = setInterval(()=>{
+          if(started || n>4){ clearInterval(hint); return; }
+          setPct(50 + (n%2===0 ? 6 : -6));
+          n++;
+        }, 380);
+        sio.unobserve(e.target);
+      }
+    });
+  },{threshold:.5});
+  sio.observe(stage);
+})();
+
+// Modal Reserva Rápida
+(function(){
+  const modal = document.getElementById('resModal');
+  if(!modal) return;
+  const form = document.getElementById('resForm');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const dateInput = document.getElementById('rdate');
+  const svcSelect = document.getElementById('rs');
+  const BTN_NORMAL = 'Contactar inmediato →';
+  const BTN_URGENT = 'Atender urgencia ahora →';
+  let lastFocus = null;
+
+  // Fecha mínima = hoy; default = mañana
+  if(dateInput){
+    const today = new Date();
+    const tomorrow = new Date(today); tomorrow.setDate(tomorrow.getDate()+1);
+    const fmt = (d)=> d.toISOString().split('T')[0];
+    dateInput.min = fmt(today);
+    dateInput.value = fmt(tomorrow);
+  }
+
+  // Highlight urgencia
+  function updateUrgent(){
+    const u = svcSelect && svcSelect.value === 'Urgencia';
+    submitBtn.classList.toggle('urgent', u);
+    if(!submitBtn.disabled) submitBtn.textContent = u ? BTN_URGENT : BTN_NORMAL;
+  }
+  if(svcSelect) svcSelect.addEventListener('change', updateUrgent);
+
+  function open(e){
+    if(e){ e.preventDefault(); lastFocus = e.currentTarget; }
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(()=>{ document.getElementById('rn').focus(); }, 380);
+  }
+  function close(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(lastFocus && typeof lastFocus.focus==='function') lastFocus.focus();
+  }
+
+  // Abrir desde cualquier link/button hacia #contacto (excepto los marcados con data-skip-modal)
+  document.querySelectorAll('a[href*="#contacto"]:not([data-skip-modal])').forEach(a=>{
+    a.addEventListener('click', open);
+  });
+
+  // Cerrar
+  modal.querySelectorAll('[data-close]').forEach(el=> el.addEventListener('click', close));
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
+
+  // Submit
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    submitBtn.textContent = 'Enviado ✓ Te llamamos pronto';
+    submitBtn.disabled = true;
+    setTimeout(()=>{
+      close();
+      setTimeout(()=>{
+        submitBtn.disabled = false;
+        form.reset();
+        submitBtn.classList.remove('urgent');
+        submitBtn.textContent = BTN_NORMAL;
+      }, 600);
+    }, 1800);
+  });
+})();
+
+// Highlight urgencia en form principal (#contacto)
+(function(){
+  const sel = document.getElementById('s');
+  const btn = document.querySelector('#contacto form.cta-r button[type="submit"]');
+  if(!sel || !btn) return;
+  const NORMAL = 'Contactar inmediato →';
+  const URGENT = 'Atender urgencia ahora →';
+  sel.addEventListener('change', ()=>{
+    const u = sel.value === 'Urgencia';
+    btn.classList.toggle('urgent', u);
+    if(!btn.disabled) btn.textContent = u ? URGENT : NORMAL;
+  });
+})();
+
+// Social proof toast
+(function(){
+  const toast = document.getElementById('socialToast');
+  if(!toast) return;
+  const nameEl = document.getElementById('stName');
+  const actEl = document.getElementById('stAct');
+  const timeEl = document.getElementById('stTime');
+  const avEl = document.getElementById('stAv');
+  const xBtn = document.getElementById('stX');
+
+  const items = [
+    {name:'Carlos M.',  act:'Reservó · Implantes',           tm:'hace 12 min · San Isidro',  av:'CM'},
+    {name:'Lucía R.',   act:'Reservó · Ortodoncia invisible', tm:'hace 28 min · Miraflores',  av:'LR'},
+    {name:'José T.',    act:'Consultó · Endodoncia',          tm:'hace 1 h · Surco',          av:'JT'},
+    {name:'Mariana A.', act:'Reservó · Diseño de sonrisa',    tm:'hace 2 h · La Molina',      av:'MA'},
+    {name:'Diego P.',   act:'Reservó · Limpieza',             tm:'hace 3 h · San Borja',      av:'DP'},
+    {name:'Andrea V.',  act:'Reservó · Periodoncia',          tm:'hace 5 h · Jesús María',    av:'AV'}
+  ];
+
+  let idx = 0, closed = false, timer = null;
+
+  function render(item){
+    nameEl.textContent = item.name;
+    actEl.textContent  = item.act;
+    timeEl.textContent = item.tm;
+    avEl.textContent   = item.av;
+  }
+
+  function swap(){
+    if(closed) return;
+    toast.classList.add('swap');
+    setTimeout(()=>{
+      idx = (idx+1) % items.length;
+      render(items[idx]);
+      toast.classList.remove('swap');
+    }, 350);
+  }
+
+  xBtn.addEventListener('click', ()=>{
+    closed = true;
+    toast.classList.remove('show');
+    clearInterval(timer);
+  });
+
+  render(items[idx]);
+  setTimeout(()=>{
+    if(closed) return;
+    toast.classList.add('show');
+    timer = setInterval(swap, 7000);
+  }, 1200);
+})();
 </script>
 </body>
 </html>

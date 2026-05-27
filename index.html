@@ -9,9 +9,20 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b3b3a'/%3E%3Cpath d='M32 12c-7 0-12 4-12 11 0 6 4 14 7 26 1 3 4 3 5 0l3-14c0-2 4-2 4 0l3 14c1 3 4 3 5 0 3-12 7-20 7-26 0-7-5-11-12-11-3 0-5 1-5 1s-2-1-5-1z' fill='%235eead4'/%3E%3C/svg%3E" />
 
 <meta property="og:title" content="COE Dental — Centro Odontológico de Especialidades" />
-<meta property="og:description" content="Implantes, ortodoncia, periodoncia y odontopediatría en un solo lugar." />
+<meta property="og:description" content="Implantes, ortodoncia, periodoncia y odontopediatría en un solo lugar. Equipo multidisciplinario en Miraflores, Lima." />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="es_PE" />
+<meta property="og:site_name" content="COE Dental" />
+<meta property="og:url" content="https://eljack69.github.io/dentis-premium/" />
+<meta property="og:image" content="https://eljack69.github.io/dentis-premium/img/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="COE Dental — Centro Odontológico de Especialidades en Lima" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="COE Dental — Centro Odontológico de Especialidades" />
+<meta name="twitter:description" content="Diez especialidades odontológicas en un solo consultorio. Lima — Miraflores." />
+<meta name="twitter:image" content="https://eljack69.github.io/dentis-premium/img/og-image.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +33,65 @@
   "@context": "https://schema.org",
   "@type": "Dentist",
   "name": "COE Dental",
+  "image": "https://eljack69.github.io/dentis-premium/img/og-image.jpg",
+  "url": "https://eljack69.github.io/dentis-premium/",
   "priceRange": "$$",
   "telephone": "+51 1 000 0000",
-  "address": {"@type":"PostalAddress","addressLocality":"Lima","addressCountry":"PE"},
-  "openingHours": "Mo-Sa 09:00-20:00"
+  "email": "hola@coedental.pe",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Larco 1234, Of. 502",
+    "addressLocality": "Miraflores",
+    "addressRegion": "Lima",
+    "postalCode": "15074",
+    "addressCountry": "PE"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "09:00",
+    "closes": "20:00"
+  }],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "1200",
+    "bestRating": "5"
+  },
+  "medicalSpecialty": ["Implantology","Orthodontics","Periodontics","Endodontics","Pediatric Dentistry","Cosmetic Dentistry","Oral Surgery"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Atienden urgencias el mismo día?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Reservamos cupos diarios de urgencia. Llama o escribe por WhatsApp y un coordinador te asigna el primer espacio libre — usualmente en menos de 4 horas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué garantía tienen los implantes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Garantía de por vida del fabricante (Straumann o Neodent) sobre el implante + 5 años clínicos sobre prótesis siempre que asistas a los controles anuales gratuitos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Atienden a niños?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, desde los 2 años. Tenemos sala temática y odontopediatra entrenada en técnicas conductuales. Primera visita 'no invasiva' pensada para que el niño quiera volver."
+      }
+    }
+  ]
 }
 </script>
 
@@ -116,7 +182,19 @@ nav.top .row{display:flex;align-items:center;justify-content:space-between;paddi
 .hero .row{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
 .hero h1{margin:20px 0 24px}
 .hero h1 .serif{color:var(--teal-d)}
-.hero .lede{font-size:16px;color:var(--slate);max-width:500px;margin-bottom:28px}
+.hero .lede{font-size:16px;color:var(--slate);max-width:500px;margin-bottom:20px}
+.hero-alert{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,rgba(255,122,92,.12),rgba(255,122,92,.06));
+  border:1px solid rgba(255,122,92,.3);
+  color:var(--ink);padding:9px 16px;border-radius:999px;
+  font-size:13px;margin-bottom:22px;font-weight:500;letter-spacing:.005em;
+}
+.hero-alert .dot{
+  width:9px;height:9px;border-radius:50%;background:var(--coral);flex:0 0 auto;
+  box-shadow:0 0 0 0 var(--coral);animation:p 1.8s infinite;
+}
+.hero-alert b{font-weight:700;color:var(--ink)}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 .hero-meta{display:flex;gap:32px;margin-top:36px;flex-wrap:wrap}
 .hero-meta div b{font-size:24px;font-weight:700;display:block;color:var(--ink);letter-spacing:-.02em}
@@ -134,7 +212,7 @@ nav.top .row{display:flex;align-items:center;justify-content:space-between;paddi
 }
 .appt-hero-img{
   position:relative;height:240px;background-size:cover;background-position:center;
-  background-image:url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=80');
+  background-image:url('img/clinica-hero.jpg');
 }
 .appt-hero-img::after{
   content:"";position:absolute;inset:0;
@@ -264,7 +342,7 @@ section{padding:80px 0;position:relative}
   border:1px solid var(--line-soft);
   box-shadow:0 30px 60px -30px rgba(10,31,36,.2);
   position:relative;min-height:520px;
-  background:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
+  background:url('img/tech-visual.jpg') center/cover no-repeat;
 }
 .tech .visual::after{
   content:"";position:absolute;inset:0;
@@ -324,7 +402,7 @@ section{padding:80px 0;position:relative}
 .r:nth-child(odd){background:#fff;border-color:var(--line)}
 .r:nth-child(2){
   background:var(--ink);color:#fff;grid-row:span 2;
-  background-image:linear-gradient(180deg,rgba(10,31,36,.7) 0%,rgba(10,31,36,.96) 70%),url('https://images.unsplash.com/photo-1612528443702-f6741f70a049?auto=format&fit=crop&w=800&q=80');
+  background-image:linear-gradient(180deg,rgba(10,31,36,.7) 0%,rgba(10,31,36,.96) 70%),url('img/review-bg.jpg');
   background-size:cover;background-position:center;
 }
 .r:nth-child(2) blockquote{color:#fff}
@@ -333,7 +411,11 @@ section{padding:80px 0;position:relative}
 .r blockquote{font-family:var(--serif);font-size:17px;line-height:1.4;color:var(--ink);font-weight:400}
 .r:nth-child(2) blockquote{font-size:21px;line-height:1.35}
 .r .who{display:flex;gap:10px;align-items:center;margin-top:auto;font-size:13px}
-.r .who .av{width:34px;height:34px;border-radius:50%;background:var(--teal-d);color:var(--mint);display:grid;place-items:center;font-size:12px;font-weight:700}
+.r .who .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:16px;font-weight:600;color:#fff;letter-spacing:.01em;box-shadow:0 6px 14px -4px rgba(10,31,36,.25)}
+.r:nth-child(1) .who .av{background:linear-gradient(135deg,#0f766e 0%,#0b3b3a 100%);color:#5eead4}
+.r:nth-child(2) .who .av{background:linear-gradient(135deg,#5eead4 0%,#0f766e 100%);color:#0b3b3a}
+.r:nth-child(3) .who .av{background:linear-gradient(135deg,#ff7a5c 0%,#dc3a1c 100%);color:#fff}
+.r:nth-child(4) .who .av{background:linear-gradient(135deg,#a78bfa 0%,#5b21b6 100%);color:#fff}
 .r .who b{display:block;font-weight:600}
 .r .who span{color:var(--soft);font-size:12px}
 
@@ -780,14 +862,18 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       <span class="eyebrow">Centro odontológico de especialidades</span>
       <h1>Diez especialidades, <span class="serif">una sola</span> conversación contigo.</h1>
       <p class="lede">Equipo multidisciplinario en un solo consultorio: implantólogos, ortodoncistas, periodoncistas y odontopediatras coordinando tu caso para que no rebotes entre clínicas.</p>
+      <div class="hero-alert" id="heroAlert">
+        <span class="dot"></span>
+        <span class="txt"><b>3 cupos libres hoy</b> · próxima cita <b>16:00</b></span>
+      </div>
       <div class="hero-cta">
         <a href="#contacto" class="btn btn-primary">Reservar evaluación →</a>
         <a href="#proceso" class="btn btn-ghost">Cómo trabajamos</a>
       </div>
       <div class="hero-meta">
-        <div><b data-count="18" data-suffix=" años">0 años</b><span>en Lima</span></div>
-        <div><b data-count="10">0</b><span>especialidades</span></div>
-        <div><b data-count="4.9" data-suffix="★" data-decimals="1">0★</b><span>+1 200 reseñas</span></div>
+        <div><b>18 <span style="font-size:.55em;font-weight:500;color:var(--soft);letter-spacing:.04em">años</span></b><span>en Lima</span></div>
+        <div><b>10</b><span>especialidades</span></div>
+        <div><b>4.9<span style="color:#f59e0b;margin-left:2px">★</span></b><span>+1 200 reseñas</span></div>
       </div>
     </div>
 
@@ -809,7 +895,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
           <a href="#contacto" style="font-size:12px;color:var(--teal);font-weight:600">Ver agenda →</a>
         </div>
         <div class="appt-doctor">
-          <div class="av" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80')"></div>
+          <div class="av" style="background-image:url('img/dra-camila.jpg')"></div>
           <div class="info">
             <b>Dra. Camila Delgado</b>
             <span>Implantología · CDP 18432</span>
@@ -856,7 +942,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
 
     <div class="svc-grid">
       <a class="svc reveal" href="#contacto">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=80')">
+        <div class="svc-img" style="background-image:url('img/implantologia.jpg')">
           <span class="tag">Cirugía</span>
         </div>
         <div class="svc-body">
@@ -884,7 +970,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1559131397-f94da358f7ca?auto=format&fit=crop&w=700&q=80')">
+        <div class="svc-img" style="background-image:url('img/periodoncia.jpg')">
           <span class="tag">Encías</span>
         </div>
         <div class="svc-body">
@@ -898,7 +984,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=700&q=80')">
+        <div class="svc-img" style="background-image:url('img/endodoncia.jpg')">
           <span class="tag">Conductos</span>
         </div>
         <div class="svc-body">
@@ -912,7 +998,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1597764690523-15bea4c581c9?auto=format&fit=crop&w=700&q=80')">
+        <div class="svc-img" style="background-image:url('img/odontopediatria.jpg')">
           <span class="tag">Niños</span>
         </div>
         <div class="svc-body">
@@ -926,7 +1012,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1612528443702-f6741f70a049?auto=format&fit=crop&w=700&q=80')">
+        <div class="svc-img" style="background-image:url('img/diseno-sonrisa.jpg')">
           <span class="tag">Estética</span>
         </div>
         <div class="svc-body">
@@ -940,7 +1026,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80')">
+        <div class="svc-img" style="background-image:url('img/rehabilitacion.jpg')">
           <span class="tag">Integral</span>
         </div>
         <div class="svc-body">
@@ -968,7 +1054,7 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       </a>
 
       <a class="svc reveal" href="#contacto">
-        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80')">
+        <div class="svc-img" style="background-image:url('img/cirugia-cordales.jpg')">
           <span class="tag">Cirugía</span>
         </div>
         <div class="svc-body">
@@ -1074,16 +1160,17 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
         <span class="eyebrow">Resultados</span>
         <h2 style="margin-top:14px">Lo que <span class="serif">no se dice</span><br>en el folleto.</h2>
       </div>
-      <p style="color:var(--slate);font-size:17px;max-width:520px">Arrastra la línea para ver el caso real de una paciente atendida en COE Dental — diseño de sonrisa con 8 carillas E-max, tratada por nuestro equipo de estética. Antes y después.</p>
+      <p style="color:var(--slate);font-size:17px;max-width:520px">Arrastra la línea para visualizar el proceso de una rehabilitación estética: del diagnóstico inicial al resultado final con carillas E-max y diseño de sonrisa.</p>
     </div>
     <div class="compare-stage reveal" id="cmpStage">
-      <div class="layer before" style="background-image:url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1400&q=80')"></div>
+      <div class="layer before" style="background-image:url('img/antes-comparador.jpg')"></div>
       <div class="layer after" id="cmpAfter" style="background-image:url('img/despues-sonrisa.jpg')"></div>
-      <span class="lbl lbl-b">Antes</span>
-      <span class="lbl lbl-a">Después · 6 semanas</span>
+      <span class="lbl lbl-b">Proceso</span>
+      <span class="lbl lbl-a">Resultado · 6 semanas</span>
       <span class="handle" id="cmpHandle"></span>
       <span class="pulse-tip">← arrastra para comparar →</span>
     </div>
+    <p style="font-size:11.5px;color:var(--soft);text-align:center;margin-top:14px;letter-spacing:.04em">* Imágenes referenciales del tratamiento. Casos reales se comparten con consentimiento del paciente durante la evaluación.</p>
   </div>
 </section>
 
@@ -1322,6 +1409,10 @@ footer{padding:80px 0 30px;background:var(--ink);color:#9fb5b9;font-size:14px}
       <div>
         <h4>Contacto</h4>
         <ul>
+          <li style="display:flex;gap:8px;align-items:flex-start;line-height:1.4">
+            <svg style="width:14px;height:14px;color:#5eead4;flex:0 0 auto;margin-top:3px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Av. Larco 1234, Of. 502<br>Miraflores · Lima 15074<br><a href="https://maps.google.com/?q=Av.+Larco+1234+Miraflores+Lima" target="_blank" rel="noopener" style="color:#5eead4;font-size:12px;font-weight:600">Ver en Google Maps ↗</a></span>
+          </li>
           <li><a href="tel:+5110000000">+51 1 000 0000</a></li>
           <li><a href="mailto:hola@coedental.pe">hola@coedental.pe</a></li>
           <li><a href="https://wa.me/51900000000" target="_blank">WhatsApp</a></li>
@@ -1460,25 +1551,27 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 const io = new IntersectionObserver((ents)=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// Counter animation en stats hero
-const animateCount = (el)=>{
-  const target = parseFloat(el.dataset.count);
-  const decimals = parseInt(el.dataset.decimals||0);
-  const suffix = el.dataset.suffix||'';
-  const dur = 1500, start = performance.now();
-  const tick = (t)=>{
-    const p = Math.min(1,(t-start)/dur);
-    const eased = 1 - Math.pow(1-p, 3);
-    const val = (target*eased).toFixed(decimals);
-    el.textContent = val + suffix;
-    if(p<1) requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-};
-const cio = new IntersectionObserver((ents)=>{
-  ents.forEach(e=>{ if(e.isIntersecting){ animateCount(e.target); cio.unobserve(e.target); } });
-},{threshold:.6});
-document.querySelectorAll('.hero-meta b[data-count]').forEach(c=>cio.observe(c));
+// Hero alert dinámica (cupos según hora actual)
+(function(){
+  const txt = document.querySelector('#heroAlert .txt');
+  if(!txt) return;
+  const slots = [9, 10, 11.5, 14, 15.5, 16, 17, 18.5, 20];
+  const fmt = (s)=> Math.floor(s) + ':' + (s%1 ? '30' : '00');
+  const now = new Date();
+  const hour = now.getHours() + now.getMinutes()/60;
+  const day = now.getDay(); // 0 dom
+  if(day === 0){
+    txt.innerHTML = '<b>Mañana atendemos</b> · primera cita disponible <b>9:00</b>';
+    return;
+  }
+  const remaining = slots.filter(s => s > hour);
+  if(remaining.length){
+    const n = Math.min(remaining.length, 4);
+    txt.innerHTML = `<b>${n} ${n===1?'cupo libre':'cupos libres'} hoy</b> · próxima cita <b>${fmt(remaining[0])}</b>`;
+  } else {
+    txt.innerHTML = '<b>Mañana atendemos</b> · primera cita disponible <b>9:00</b>';
+  }
+})();
 
 // Slots toggle
 document.querySelectorAll('.slot:not(.taken)').forEach(s=>{
@@ -1623,7 +1716,22 @@ document.querySelectorAll('.btn-primary').forEach(b=>{
 
   // Cerrar
   modal.querySelectorAll('[data-close]').forEach(el=> el.addEventListener('click', close));
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
+
+  // Teclado: Esc cierra, Tab queda atrapado dentro del modal (focus trap)
+  document.addEventListener('keydown', e=>{
+    if(!modal.classList.contains('open')) return;
+    if(e.key === 'Escape'){ close(); return; }
+    if(e.key !== 'Tab') return;
+    const focusables = modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+    if(!focusables.length) return;
+    const first = focusables[0];
+    const last  = focusables[focusables.length - 1];
+    if(e.shiftKey && document.activeElement === first){
+      e.preventDefault(); last.focus();
+    } else if(!e.shiftKey && document.activeElement === last){
+      e.preventDefault(); first.focus();
+    }
+  });
 
   // Submit
   form.addEventListener('submit', e=>{
@@ -1675,6 +1783,14 @@ document.querySelectorAll('.btn-primary').forEach(b=>{
     {name:'Andrea V.',  act:'Reservó · Periodoncia',          tm:'hace 5 h · Jesús María',    av:'AV'}
   ];
 
+  // Si el usuario cerró el toast en los últimos 7 días, no mostrarlo
+  const STORAGE_KEY = 'coeToastClosedAt';
+  const COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000; // 7 días
+  try {
+    const closedAt = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+    if(closedAt && (Date.now() - closedAt) < COOLDOWN_MS) return;
+  } catch(_){}
+
   let idx = 0, closed = false, timer = null;
 
   function render(item){
@@ -1698,6 +1814,7 @@ document.querySelectorAll('.btn-primary').forEach(b=>{
     closed = true;
     toast.classList.remove('show');
     clearInterval(timer);
+    try { localStorage.setItem(STORAGE_KEY, String(Date.now())); } catch(_){}
   });
 
   render(items[idx]);
